@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const baseURL = 'http://localhost:3000'
-//const baseURL = 'http://nombre_en_heroku.herokuapp.com/api'
+//const baseURL = 'http://notam-app.herokuapp.com/api'
 
 class AuthService {
     constructor(){

@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import ReactMapGL from 'mapbox-gl';
 
+
 class Map extends Component {
     componentDidMount() {
         const map = new ReactMapGL.Map({
             container: this.mapContainer,
             style: 'mapbox://styles/oscarmtzo/cjykcumna0taj1ckepqoxtmi4',
             center: [-99.074097, 19.4360762],
-            zoom: 12
+            zoom: 8
         })
         // map.Popup = () => {
            
@@ -16,8 +17,10 @@ class Map extends Component {
     
     render() {
         return(
-            <div style = {{width:"100vw", height:"100vh"}} ref={e => (this.mapContainer= e)}/>
-
+            <div>
+                <div style = {{width:"100vw", height:"95vh"}} ref={e => (this.mapContainer= e)}/>
+                
+            </div>
         )
     }
 }
