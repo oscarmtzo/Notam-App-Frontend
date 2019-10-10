@@ -8,8 +8,8 @@ import { Dropdown} from 'rsuite';
 const Home = () =>{
     
     return(
-        <div id="contents">
-            <div style={{height: '5vh'}}>
+        <div className='contents'>
+            <section>
                 <Dropdown title="Menu" id="menu-contents" style={{height: '5vh', width: '5vw'}}>
                     <NavLink to="/login">Login</NavLink>
                     <br/>
@@ -18,8 +18,10 @@ const Home = () =>{
 
                 </Dropdown>
 
+            </section>
+            <div className='Map'>
+                <Map/>
             </div>
-            <Map/>
             
         </div>
     )

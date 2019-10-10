@@ -98,11 +98,11 @@ class EditableTable extends React.Component {
       },
       {
         title: 'ICAO Code',
-        dataIndex: 'age',
+        dataIndex: 'icao',
       },
       {
         title: 'IATA Code',
-        dataIndex: 'address',
+        dataIndex: 'iata',
       },
       {
         title: 'operation',
@@ -120,15 +120,15 @@ class EditableTable extends React.Component {
       dataSource: [
         {
           key: '0',
-          name: 'Edward King 0',
-          age: '32',
-          address: 'London, Park Lane no. 0',
+          name: 'Aeropuerto de Santa Lucia',
+          icao: 'MMSM',
+          iata: 'NLU',
         },
         {
           key: '1',
-          name: 'Edward King 1',
-          age: '32',
-          address: 'London, Park Lane no. 1',
+          name: 'El Lencero Airport',
+          icao: 'MMJA',
+          iata: 'JAL',
         },
       ],
       count: 2,
@@ -139,15 +139,34 @@ class EditableTable extends React.Component {
     const dataSource = [...this.state.dataSource];
     this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
   };
-
+  
   handleAdd = () => {
     const { count, dataSource } = this.state;
-    const newData = {
-      key: count,
-      name: `Edward King ${count}`,
-      age: 32,
-      address: `London, Park Lane no. ${count}`,
+    let newData = {
+      name: `santa lucia`,
+      icao: 'MM',
+      iata: `19.778885,-99.1825713,10`,
+    }
+    var obj = {
+      key1: newData.name,
+      key2: function() {
+        let word = this.key1
+        let index = word.indexOf(' ')+1
+        let container = word[0] + word[index]
+        container = container.toUpperCase()
+        return container
+      }
     };
+    //console.log(obj)
+    let action = obj.key2()
+    console.log(action)
+    newData.icao = `MM${action}`
+    // const newData = {
+    //   key: count,
+    //   name: `Aeropuerto de Santa Lucia ${count}`,
+    //   icao: 'MM',
+    //   iata: `19.778885,-99.1825713,10 ${count}`,
+    // };
     this.setState({
       dataSource: [...dataSource, newData],
       count: count + 1,

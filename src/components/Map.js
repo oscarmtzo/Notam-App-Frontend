@@ -18,30 +18,13 @@ class Map extends Component {
     render() {
         return(
             <div>
-                <div style = {{width:"100vw", height:"95vh"}} ref={e => (this.mapContainer= e)}/>
-                
+                <div style = {{
+                    width:"100vw", height:"100vh"}} ref={e => (this.mapContainer= e)}/>
             </div>
         )
     }
 }
 
 ReactMapGL.accessToken = 'pk.eyJ1Ijoib3NjYXJtdHpvIiwiYSI6ImNqeG0yY21iMDBjZms0MXJ3OGk1czR0dGcifQ.MUnx9WAsYUnVuM60F-dH8Q'
-// class Map extends Component {
-//     render(){
-//         return(
-//             <ReactMapGL
-//             mapboxApiAccessToken={TOKEN}
-//             width={400}
-//             height={400}
-//             latitude={37.7577}
-//             longitude={-122.4376}
-//             zoom={5}
-//             onViewportChange={(viewport) => {
-//                 const {width, height, latitude, longitude, zoom} = viewport;
-//                 // Optionally call `setState` and use the state to update the map.
-//             }}
-//             />
-//         )
-//     }
-// }
+
 export default Map

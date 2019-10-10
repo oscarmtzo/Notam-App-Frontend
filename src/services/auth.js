@@ -11,13 +11,13 @@ class AuthService {
         })
     }
     signup(data){
-        return this.service.post('/signup', data)
+        return this.service.post('/api/signup', data)
     }
     login(data){
-        return this.service.post('/login', data)
+        return this.service.post('/api/login', data)
     }
     logout(data){
-        return this.service.get('/logout')
+        return this.service.get('/api/logout')
     }
 }
 export default AuthService

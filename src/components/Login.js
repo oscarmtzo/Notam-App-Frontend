@@ -1,18 +1,20 @@
-import React from 'react'
-import AuthService from  '../services/auth'
+import React, {useEffect} from 'react'
+import AuthService from '../services/auth'
 import useForm from './hooks/useForm'
+import {NavLink} from 'react-router-dom'
 import Map from './Map'
-
-function Signup (props) {
-    const [form, handleInput ] =useForm()
+function Login (props){
+    const [ form, handleInput] =useForm()
     const authService = new AuthService()
-    
-    const handleSignup = () => {
-        authService
-        .signup(form)
+    useEffect(()=> {
+        const loggedUser = localStorage.getItem('loggedUser')
+        if(loggedUser) return props.history.push('/private')
+    }, [props.history])
+    const handleLogin = () => {
+        authService.login(form)
         .then(response => {
             console.log(response)
-            props.history.push('/login')
+            localStorage.setItem('loggedUser', JSON.stringify(response.data.user))
         })
         .catch(err => {
             console.log(err.response)
@@ -21,13 +23,14 @@ function Signup (props) {
     return(
         <div className='contents'>
             <section>
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name" onChange={handleInput}/>
                 <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="email" onChange={handleInput}/>
                 <label htmlFor="password">Password</label>
                 <input type="password" name="password" id="password" onChange={handleInput}/>
-                <button onClick={handleSignup}>Sing up</button>
+                <NavLink to="/private">
+
+                    <button onClick={handleLogin}>Login</button>
+                </NavLink>
             </section>
             <div className='Map'>
                 <Map/>
@@ -35,4 +38,4 @@ function Signup (props) {
         </div>
     )
 }
-export default Signup
+export default Login
