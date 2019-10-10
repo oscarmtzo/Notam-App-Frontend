@@ -20,7 +20,7 @@ body {
     align-items: center;
     justify-content: center;
   }
-@media screen and (max-width: 2160px) and (min-width: 500px){
+@media screen and (max-width: 2160px) and (min-width: 2000px){
   .contents{
     display: flex;
   }
@@ -40,6 +40,9 @@ body {
     width: 100vw;
     height: 40vw;
   }
+}
+.session{
+  
 }
 /* .contents{
   display: flex;

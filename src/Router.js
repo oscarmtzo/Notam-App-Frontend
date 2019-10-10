@@ -5,11 +5,13 @@ import Signup from './components/Signup';
 
 import Private from "./components/Private";
 import Login from './components/Login';
+import SearchableMap from './components/SearchableMap';
 const Router = () =>{
     return(
         <BrowserRouter>
         <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/search" component={SearchableMap}/>
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/private" component={Private}/>
             <Route exact path="/login" component={Login}/>

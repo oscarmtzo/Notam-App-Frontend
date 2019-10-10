@@ -3,7 +3,7 @@ import React from 'react'
 import EditableTable from './AddAirports'
 import Map  from './Map'
 import AuthService from '../services/auth';
-
+import {NavLink} from 'react-router-dom'
 function Private (props){
     const authService = new AuthService()
     const handleLogout = () => {
@@ -18,7 +18,9 @@ function Private (props){
         <div className='contents'>
             <section>
                 <EditableTable/>
-                <button>home</button>
+                <NavLink to='/search'>
+                    <button>home</button>
+                </NavLink>
                 <button onClick={handleLogout}>Logout</button>
             </section>
             <div className='Map'>
